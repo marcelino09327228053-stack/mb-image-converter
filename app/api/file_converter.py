@@ -2,7 +2,7 @@
 
 import io
 import zipfile
-from collections import Counter
+import pymupdf
 from urllib.parse import quote
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
@@ -20,6 +20,9 @@ async def conversion_targets(file: UploadFile = File(...)):
 
 @router.post("/convert")
 async def convert(files: list[UploadFile] = File(..., alias="file"), target: str = Form(...)):
+    target = target.lower().lstrip(".")
+    if not files:
+        raise HTTPException(status_code=400, detail="Pumili muna ng file.")
     if len(files) > 20:
         raise HTTPException(status_code=400, detail="Hanggang 20 files lang bawat conversion.")
     results = []
@@ -36,16 +39,25 @@ async def convert(files: list[UploadFile] = File(..., alias="file"), target: str
     if len(results) == 1:
         result = results[0]
         output, filename, media_type = result.data, result.filename, result.media_type
+    elif target == "pdf":
+        with pymupdf.open() as merged:
+            for result in results:
+                with pymupdf.open(stream=result.data, filetype="pdf") as document:
+                    merged.insert_pdf(document)
+            output = merged.tobytes(garbage=3, deflate=True)
+        filename, media_type = "mb-image-converter-combined.pdf", "application/pdf"
     else:
         archive = io.BytesIO()
-        used = Counter()
+        used = set()
         with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
             for result in results:
-                used[result.filename] += 1
                 name = result.filename
-                if used[name] > 1:
-                    base, dot, suffix = name.rpartition(".")
-                    name = f"{base}-{used[name]}.{suffix}" if dot else f"{name}-{used[name]}"
+                base, dot, suffix = name.rpartition(".")
+                number = 2
+                while name in used:
+                    name = f"{base}-{number}.{suffix}" if dot else f"{result.filename}-{number}"
+                    number += 1
+                used.add(name)
                 bundle.writestr(name, result.data)
         output, filename, media_type = archive.getvalue(), f"mb-image-converter-{target}-converted.zip", "application/zip"
     encoded_name = quote(filename)

@@ -55,7 +55,7 @@
       <section class="converter" aria-label="File converter">
         <div class="step"><span class="number">1</span><div><strong>Piliin ang iyong file</strong><span>Hanggang 100 MB bawat file</span></div></div>
         <label class="drop" id="dropzone" for="fileInput"><div class="drop-prompt"><div class="upload-icon">⇧</div><h2>I-tap para pumili ng files</h2><p><span class="browse">Mula sa photos o files ng device</span><br>Hanggang 20 files · PDF, JPG, PNG, WEBP, BMP, TIFF, GIF, TXT, o DOCX</p></div><div class="drop-gallery" id="dropGallery" aria-label="Preview ng mga napiling file"></div></label>
-        <input id="fileInput" type="file" hidden multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.bmp,.tif,.tiff,.gif,.txt,.docx">
+        <input id="fileInput" type="file" hidden multiple accept="image/*,.pdf,.txt,.docx">
         <div class="file-list" id="fileList"></div>
         <div class="controls" id="controls"><label class="label" for="target">2. I-convert bilang</label><p class="batch-hint">Maraming files → isang PDF (bawat image ay isang page), o isang ZIP para sa ibang format. Susundin ang pagkakasunod sa listahan.</p><select id="target" aria-label="Target format" disabled><option>Piliin muna ang file</option></select><button class="convert" id="convertBtn" disabled>I-convert at i-download →</button><p class="status" id="status" role="status"></p><div class="results" id="results"><div class="results-title">Converted files</div></div></div>
         <div class="fine"><span>Secure processing</span><span>Auto-delete</span><span>Mobile-ready</span></div>

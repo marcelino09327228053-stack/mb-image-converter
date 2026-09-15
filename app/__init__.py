@@ -1,0 +1,1 @@
+"""PalitFile application package."""

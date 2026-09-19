@@ -9,7 +9,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt \
     && useradd --create-home appuser
 
-COPY main.py converter.html ./
+COPY main.py converter.html resume.html ./
 COPY app ./app
 USER appuser
 EXPOSE 8000

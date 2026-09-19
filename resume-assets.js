@@ -14,8 +14,6 @@ window.MB_RESUME_SHAPES = [
   { id: 'cloud', label: 'Cloud' }, { id: 'line', label: 'Line' }
 ];
 
-// Resume/CV essentials. Lucide icons are used where possible.
-// Brand entries use simple recognizable text marks in the picker/canvas loader.
 window.MB_RESUME_ICONS = [
   { id: 'phone', label: 'Phone' },
   { id: 'smartphone', label: 'Mobile' },
@@ -28,9 +26,8 @@ window.MB_RESUME_ICONS = [
   { id: 'brand-whatsapp', label: 'WhatsApp', brand: 'WA' },
   { id: 'brand-facebook', label: 'Facebook', brand: 'f' },
   { id: 'brand-linkedin', label: 'LinkedIn', brand: 'in' },
-  { id: 'user', label: 'Person' },
-  { id: 'user-round', label: 'Male / Person' },
-  { id: 'users-round', label: 'People' },
+  { id: 'mars', label: 'Male' },
+  { id: 'venus', label: 'Female' },
   { id: 'cake', label: 'Birthdate' },
   { id: 'calendar-days', label: 'Date' },
   { id: 'briefcase-business', label: 'Work Experience' },

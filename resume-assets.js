@@ -1,30 +1,24 @@
 // Resume editor asset library
 // Kept separate from resume.html so shapes and icons can grow without touching text-editor logic.
 
+// Shapes only: no arrows, chevrons, plus/minus, or icon-like items.
+// Every shape starts as outline/line-only. Fill can be enabled later from Shape Style.
 window.MB_RESUME_SHAPES = [
   { id: 'rectangle', label: 'Rectangle' },
   { id: 'rounded', label: 'Rounded Rectangle' },
+  { id: 'square', label: 'Square' },
   { id: 'circle', label: 'Circle' },
   { id: 'oval', label: 'Oval' },
-  { id: 'square', label: 'Square' },
   { id: 'triangle', label: 'Triangle' },
   { id: 'diamond', label: 'Diamond' },
-  { id: 'line', label: 'Line' },
-  { id: 'arrow-right', label: 'Arrow Right' },
-  { id: 'arrow-left', label: 'Arrow Left' },
-  { id: 'arrow-up', label: 'Arrow Up' },
-  { id: 'arrow-down', label: 'Arrow Down' },
-  { id: 'chevron-right', label: 'Chevron Right' },
-  { id: 'chevron-left', label: 'Chevron Left' },
   { id: 'pentagon', label: 'Pentagon' },
   { id: 'hexagon', label: 'Hexagon' },
   { id: 'star', label: 'Star' },
-  { id: 'banner', label: 'Banner' },
-  { id: 'plus', label: 'Plus' },
-  { id: 'minus', label: 'Minus' }
+  { id: 'heart', label: 'Heart' },
+  { id: 'line', label: 'Line' }
 ];
 
-// Lucide names. The UI can render these with lucide.createIcons().
+// Lucide names. Icons stay separate from Shapes.
 window.MB_RESUME_ICONS = [
   { id: 'phone', label: 'Phone' },
   { id: 'mail', label: 'Email' },

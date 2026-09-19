@@ -34,6 +34,33 @@ async def resume_page():
     return FileResponse(BASE_DIR / "resume.html")
 
 
+# Resume editor assets are kept as separate files so the editor can be
+# maintained without rebuilding one very large HTML file.
+@app.get("/resume.css")
+async def resume_css():
+    return FileResponse(BASE_DIR / "resume.css", media_type="text/css")
+
+
+@app.get("/resume.js")
+async def resume_js():
+    return FileResponse(BASE_DIR / "resume.js", media_type="application/javascript")
+
+
+@app.get("/resume-assets.js")
+async def resume_assets_js():
+    return FileResponse(BASE_DIR / "resume-assets.js", media_type="application/javascript")
+
+
+@app.get("/resume-assets-loader.js")
+async def resume_assets_loader_js():
+    return FileResponse(BASE_DIR / "resume-assets-loader.js", media_type="application/javascript")
+
+
+@app.get("/resume-shape-controls.js")
+async def resume_shape_controls_js():
+    return FileResponse(BASE_DIR / "resume-shape-controls.js", media_type="application/javascript")
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}

@@ -61,6 +61,11 @@ async def resume_shape_controls_js():
     return FileResponse(BASE_DIR / "resume-shape-controls.js", media_type="application/javascript")
 
 
+@app.get("/resume-icon-controls.js")
+async def resume_icon_controls_js():
+    return FileResponse(BASE_DIR / "resume-icon-controls.js", media_type="application/javascript")
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}

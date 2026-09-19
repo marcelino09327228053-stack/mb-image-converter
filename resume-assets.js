@@ -1,8 +1,7 @@
 // Resume editor asset library
 // Kept separate from resume.html so shapes and icons can grow without touching text-editor logic.
 
-// Shapes only: no arrows, chevrons, plus/minus, or icon-like items.
-// Every shape starts as outline/line-only. Fill can be enabled later from Shape Style.
+// 20 real shapes only. Every shape starts outline/line-only; Fill is optional in Shape Style.
 window.MB_RESUME_SHAPES = [
   { id: 'rectangle', label: 'Rectangle' },
   { id: 'rounded', label: 'Rounded Rectangle' },
@@ -10,11 +9,19 @@ window.MB_RESUME_SHAPES = [
   { id: 'circle', label: 'Circle' },
   { id: 'oval', label: 'Oval' },
   { id: 'triangle', label: 'Triangle' },
+  { id: 'right-triangle', label: 'Right Triangle' },
   { id: 'diamond', label: 'Diamond' },
   { id: 'pentagon', label: 'Pentagon' },
   { id: 'hexagon', label: 'Hexagon' },
+  { id: 'heptagon', label: 'Heptagon' },
+  { id: 'octagon', label: 'Octagon' },
+  { id: 'trapezoid', label: 'Trapezoid' },
+  { id: 'parallelogram', label: 'Parallelogram' },
   { id: 'star', label: 'Star' },
   { id: 'heart', label: 'Heart' },
+  { id: 'cross', label: 'Cross' },
+  { id: 'crescent', label: 'Crescent' },
+  { id: 'cloud', label: 'Cloud' },
   { id: 'line', label: 'Line' }
 ];
 

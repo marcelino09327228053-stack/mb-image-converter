@@ -19,6 +19,12 @@ async def converter_page():
     return FileResponse(BASE_DIR / "converter.html")
 
 
+@app.get("/resume")
+@app.get("/resume/")
+async def resume_page():
+    return FileResponse(BASE_DIR / "resume.html")
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
